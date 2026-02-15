@@ -124,5 +124,4 @@ def run_all_graphs_from_toml(file_path):
             print(f"Cycle {i}: {' -> '.join(path)}")
 
 if __name__ == "__main__":
-    # Specify the name of your TOML file here
     run_all_graphs_from_toml("test.toml")
