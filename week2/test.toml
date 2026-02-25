@@ -1,0 +1,55 @@
+# Graph 1: 2 SCCs - The "Dumbbell"
+# Hub 1 (1,2,3) -> Hub 2 (4,5,6)
+[graphs.dumbbell_2scc]
+"1" = ["2", "3"]
+"2" = ["1", "3"]
+"3" = ["1", "4"]
+"4" = ["5", "6"]
+"5" = ["4", "6"]
+"6" = ["4", "5"]
+
+# Graph 2: 3 SCCs - The "Linear Chain"
+# SCC1 (1,2) -> SCC2 (3,4,5) -> SCC3 (6)
+[graphs.chain_3scc]
+"1" = ["2"]
+"2" = ["1", "3"]
+"3" = ["4", "5"]
+"4" = ["5"]
+"5" = ["3", "6"]
+"6" = []
+
+# Graph 3: 4 SCCs - The "Diamond Flow"
+# Parallel components that don't talk to each other.
+[graphs.diamond_4scc]
+"1" = ["2", "3", "1"]
+"2" = ["4", "2"]
+"3" = ["4", "3"]
+"4" = ["4"]
+
+# Graph 4: 5 SCCs - The "Nested Maze" (Converted to Numbers)
+# Flow: {1,2} -> 3 -> {4,5} -> 6 -> {7,8} -> 9
+# 3 and 6 are single-node SCCs acting as one-way bridges.
+[graphs.maze_5scc]
+"1" = ["2"]
+"2" = ["1", "3"]
+"3" = ["4"]
+"4" = ["5", "6"]
+"5" = ["4"]
+"6" = ["7"]
+"7" = ["8", "9"]
+"8" = ["7"]
+"9" = []
+
+# Graph 5: 6 SCCs - The "Stress Test"
+# A deep chain of small SCCs.
+[graphs.stress_6scc]
+"1" = ["1", "2"]
+"2" = ["3"]
+"3" = ["2", "4"]
+"4" = ["5"]
+"5" = ["6"]
+"6" = ["5", "7"]
+"7" = ["8"]
+"8" = ["9"]
+"9" = ["8", "10"]
+"10" = []
